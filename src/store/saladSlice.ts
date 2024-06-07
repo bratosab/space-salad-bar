@@ -16,12 +16,14 @@ export interface SaladState {
   base?: SaladBase;
   dressing?: Dressing;
   loading: boolean;
+  orderDate: number
 }
 
 const initialState: SaladState = {
   toppings: [],
   chosenToppings: [],
   loading: false,
+  orderDate: +new Date()
 };
 
 export const loadToppings = createAsyncThunk("salad/loadToppings", async () => {

@@ -11,11 +11,12 @@ export function Salad() {
   const toppings = useSelector((state: RootState) => state.salad.toppings)
   const chosenToppings = useSelector((state: RootState) => state.salad.chosenToppings)
   const loading = useSelector((state: RootState) => state.salad.loading)
+  const orderDate = useSelector((state: RootState) => new Date(state.salad.orderDate))
   const price = useSelector(selectTotalPriceMemo)
   const price2 = useSelector(selectTotalPriceMemo)
   const dispatch = useDispatch<AppDispatch>();
 
-  useEffect(() => {
+  useEffect(() => { 
     dispatch(loadToppings());
   }, [dispatch]);
 
@@ -29,6 +30,7 @@ export function Salad() {
       <p>Welcome, choose your toppings</p>
       <p>Total Price : {price}</p>
       <p>Total Price : {price2}</p>
+      <p>Order Date : {orderDate.toLocaleDateString()}</p>
       {loading && <p>Loading toppings...</p>}
       <div className="toppings-lists">
       <List>
