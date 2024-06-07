@@ -34,8 +34,9 @@ export function Home() {
           placeholder="Your name here ..."
           value={name}
           onChange={(e) => setName(e.target.value)}
+          data-cy="name-form"
         />
-        <button type="submit"></button>
+        <button type="submit" data-cy="submit-btn"></button>
       </form>
     </>
   );
